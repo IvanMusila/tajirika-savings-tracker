@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home - Tajirika Savings Tracker</title>
+    
+    <link rel="icon" href="./photos/TajirikaLogo.jpg" type="image/x-icon"/>
+    <link rel="stylesheet" href="./css/index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+    <h3>Tajirika</h3>
+    </nav>
+    
+    <main>
+        <h4>Savings Tracker</h4>
+
+
+        <button id="form-btn">Add Goal</button>
+
+        <div class="dashboard-content">
+            <div class="dashboard-section">
+                <div>
+                    <p id="dash-num1">Ksh <span id="T-Saving"></span> </p>
+
+                    <p id="dash-p">Total Savings</p>
+                </div>
+
+                <i class="fas fa-dollar-sign" id="ic1"></i>
+            </div>
+
+            <div class="dashboard-section">
+                <div>
+                    <p id="dash-num2"><span id="G-Achieved"> </span> </p>
+
+                    <p id="dash-p">Goals Achieved</p>
+                </div>
+
+                <i class="fa-solid fa-bullseye" id="ic2"></i>
+            </div>
+
+            <div class="dashboard-section">
+                <div>
+                    <p id="dash-num3"><span id="G-Pending"></span> </p>
+
+                    <p id="dash-p">Ongoing Goals</p>
+                </div>
+
+                <i class="fa-solid fa-person-running" id="ic3"></i>
+            </div>
+        </div>
+
+        <section id="form-section">
+            
+        </section>
+
+        <div id="goalsContainer"></div>
+
+    </main>
+</body>
+    <script src="./js/index.js"></script>
+</html>
