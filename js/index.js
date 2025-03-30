@@ -1,5 +1,5 @@
 
-const endpoint = 'https://savings-goals-api.onrender.com';
+const endpoint = 'https://savings-goals-api.onrender.com/savingsGoals';
 
 
 function formAppear() {
