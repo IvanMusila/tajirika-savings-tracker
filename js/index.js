@@ -1,5 +1,5 @@
 
-const endpoint = 'http://localhost:3000/savingsGoals';
+const endpoint = 'https://savings-goals-api.onrender.com';
 
 
 function formAppear() {
