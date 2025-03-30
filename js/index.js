@@ -1,4 +1,9 @@
+
+const endpoint = 'http://localhost:3000/savingsGoals';
+
+
 function formAppear() {
+
     const fbtn = document.getElementById('form-btn');
     fbtn.addEventListener('click', () => {
         const form = document.getElementById('form-section');
@@ -27,7 +32,6 @@ function formAppear() {
             </form>
         `;
 
-        
 
         document.getElementById('close').addEventListener('click', () => {
             form.innerHTML = "";
@@ -37,9 +41,8 @@ function formAppear() {
 });
 }
 
-formAppear();
 
-const endpoint = 'http://localhost:3000/savingsGoals';
+
 
 function fetchGoals() {
     fetch(endpoint)
@@ -51,23 +54,28 @@ function fetchGoals() {
 
 }
 
+
+
 function renderGoals(goals) {
     const container = document.getElementById('goalsContainer');
 
     container.innerHTML = '';
+
     goals.forEach(goal => {
         
         const progress = (goal.savedAmount / goal.targetAmount) * 100;
         const radius = 40;
         const circumference = 2 * Math.PI * radius;
         const offset = circumference - (progress / 100) * circumference;
+        
+
         container.innerHTML += `
             <div class="goal">
                 <h3>${goal.goalName}</h3>
                 <svg class="progress-container" width="100" height="100" viewBox="0 0 100 100">
                     <circle class="progress-ring progress-ring-background" cx="50" cy="50" r="40" stroke-width="10" stroke="#e0e0e0"></circle>
                     <circle class="progress-ring progress-ring-progress" cx="50" cy="50" r="40" stroke-width="10" stroke="#4caf50" stroke-dasharray="${circumference}" stroke-dashoffset="${offset}" transform="rotate(-90 50 50)"></circle>
-                    <text x="50" y="50" class="progress-text">${progress.toFixed(1)}%</text>
+                    <text x="50" y="50" class="progress-text">${progress.toFixed(2)}%</text>
                 </svg>
                 <p>Target: Ksh ${goal.targetAmount} <br>Saved: Ksh ${goal.savedAmount}</p>
                 <button class="modbtn" data-id="${goal.id}">Modify</button>
@@ -75,6 +83,21 @@ function renderGoals(goals) {
                 
             </div>
         `;
+
+
+        // let overpass = 0;
+        // if (progress > 100) {
+        //     overpass = (progress - 100) / 100 * circumference;
+        // }
+        // const overpassElement = document.getElementById('overpass');
+        // overpassElement.innerHTML = `
+        //     <circle class="progress-ring progress-ring-overpass" cx="50" cy="50" r="40" stroke-width="10" stroke="#003366" stroke-dasharray="${overpass} ${circumference}" transform="rotate(-90 50 50)"></circle>
+        // `;
+
+        // console.log(progress);
+        // console.log(overpass);
+        // // console.log(overpassElement);
+        // console.log(container)
 
         container.addEventListener("click", function (event) {
             const goalId = event.target.getAttribute("data-id");
@@ -84,7 +107,9 @@ function renderGoals(goals) {
                 const mod = document.getElementById(`openMod-${goalId}`);
                
                 console.log(mod);
-                // console.log(goalId);
+                console.log(goalId);
+
+
                 mod.innerHTML = `
                     <input type="number" placeholder="Deposit Amount" id="deposit-${goalId}">
                     <button class="deposit-btn" data-id="${goalId}">Deposit</button>
@@ -95,29 +120,30 @@ function renderGoals(goals) {
             }
         
             if (event.target.classList.contains("delete-btn")) {
-                // const goalId = target.getAttribute("data-id");
                 deleteGoal(goalId);
             }
 
             if (event.target.classList.contains("close-btn")) {
-                // const goalId = target.getAttribute("data-id");
                 closeModify(goalId);
             }
 
             if (event.target.classList.contains("deposit-btn")) {
-                // const goalId = target.getAttribute("data-id");
                 updateSavings(goalId);
             }
         });
     });
             
 }
+
+
     
 
 function closeModify(id) {
     const mod = document.getElementById(`openMod-${id}`);
     mod.innerHTML = ``;
 }
+
+
 
 function renderDashboard(goals){
     
@@ -133,10 +159,10 @@ function renderDashboard(goals){
             goalsAchieved += 1
             document.getElementById('G-Achieved').textContent = goalsAchieved;
         }
-        // else{
-        //     goalsAchieved = 0
-        //     document.getElementById('G-Achieved').textContent = goalsAchieved;
-        // }
+        else{
+            goalsAchieved += 0
+            document.getElementById('G-Achieved').textContent = goalsAchieved;
+        }
     })
 
     let = goalsPending = 0
@@ -146,11 +172,13 @@ function renderDashboard(goals){
             document.getElementById('G-Pending').textContent = goalsPending;
         }
         else{
-            goalsPending = 0
+            goalsPending += 0
             document.getElementById('G-Pending').textContent = goalsPending;
         }
     })
 }
+
+
 
 
 function addGoal(event) {
@@ -173,6 +201,8 @@ function addGoal(event) {
     .then(() => fetchGoals()) 
 }
 
+
+
 function updateSavings(id) {
     const depositInput = document.getElementById(`deposit-${id}`);
     const depositAmount = Number(depositInput.value);
@@ -190,6 +220,8 @@ function updateSavings(id) {
 }
 
 
+
+
 function deleteGoal(id) {
     fetch(
         `${endpoint}/${id}`, 
@@ -198,5 +230,11 @@ function deleteGoal(id) {
     .then(() => fetchGoals())
 }
 
-fetchGoals();
 
+
+function main() {
+    fetchGoals();
+    formAppear();
+}
+
+main();

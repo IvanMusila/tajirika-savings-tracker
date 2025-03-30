@@ -1,8 +1,13 @@
-@font-face { font-family: 'Montserrat'; src: url('../fonts/Montserrat-VariableFont_wght.ttf'); }
+@font-face { 
+    font-family: 'Montserrat'; 
+    src: url('../fonts/Montserrat-VariableFont_wght.ttf');
+}
+
 @font-face {
     font-family: 'Autography';
     src: url('../fonts/Autography.otf');
 }
+
 
 *{
     margin: 0;
@@ -19,14 +24,14 @@ nav{
     text-align: center;
     margin: 0;
     width: 100%;
-    padding: 10px 20px;
-    background-color: #008080;
-    font-family: 'Autography';
-    font-size: 40px;
+    /* padding: 10px 20px; */
+    border-bottom: 1px solid #333;
+
 }
 
 nav h3{
     font-family: 'Autography';
+    font-size: 45px;
 }
 
 main h4{
@@ -36,7 +41,7 @@ main h4{
     margin-top: 20px;
     font-family: 'Montserrat';
     font-size: 30px;
-    
+    color: #585b5b;
 }
 
 #goalForm{
@@ -59,6 +64,9 @@ main h4{
     width: auto;
     border : solid 1px #333;
     border-radius: 10px;
+
+    /* transition: 1.5s;
+    transform: scale(1.1); */
 
 }
 
@@ -104,6 +112,7 @@ main h4{
     cursor: pointer;
     margin: auto;
     display: flex;
+    font-weight: 600;
 }
 
 #form-btn:hover , .form-btn:hover{
@@ -117,12 +126,17 @@ main h4{
 
 .form-btn{
     margin-right: 10px;
+    font-weight: 600;
 }
 
 .btn-box{
     display: flex;
     margin: auto;
     
+}
+
+#close:hover{
+    background-color: #e61313;
 }
 
 #goalsContainer{
@@ -138,7 +152,7 @@ main h4{
     border: 1px solid #767f83;
     border-radius: 10px;
     padding: 10px;
-    margin: 10px;
+    margin: 20px;
     text-align: center;
     width: 250px;
 }
@@ -226,7 +240,6 @@ main h4{
     width: auto;
     height: auto;
     margin: 0 auto; 
-    /* border: 1px solid black; */
     margin-top: 40px;
     margin-bottom: 10px;
     
@@ -244,17 +257,20 @@ align-items: center;
 padding: 40px;
 width: auto;
 height: 200px;
-/* border: 1px solid red; */
 border-radius: 10px;
 margin: 20px;
-/* margin-left: 2%;
-margin-top: 5%;*/
-/* margin-right: 5%;  */
 
 background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
 backdrop-filter: blur(10px);
 -webkit-backdrop-filter: blur(10px);
 box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+
+transition: 0.5s;
+}
+
+.dashboard-section:hover{
+    cursor: pointer;
+    transform: scale(1.05);
 }
 
 .dashboard-section i{
@@ -307,10 +323,10 @@ color: #FFD700;
     background-color: #e61313;
 }
 
-#modbtn{
+.modbtn{
     background-color: #d4ad4e;
 }
 
-#modbtn:hover{
+.modbtn:hover{
     background-color: #756012;
 }

@@ -11,7 +11,7 @@
       "id": "5ec0",
       "goalName": "Wallet",
       "targetAmount": 2000,
-      "savedAmount": 2100,
+      "savedAmount": 2150,
       "deadline": "2025-03-29"
     },
     {
@@ -26,6 +26,20 @@
       "goalName": "TV",
       "targetAmount": 70000,
       "savedAmount": 10000,
+      "deadline": "2025-03-29"
+    },
+    {
+      "id": "a002",
+      "goalName": "Power Bank",
+      "targetAmount": 2500,
+      "savedAmount": 1000,
+      "deadline": "2025-03-29"
+    },
+    {
+      "id": "0485",
+      "goalName": "Car",
+      "targetAmount": 1000000,
+      "savedAmount": 551000,
       "deadline": "2025-03-29"
     }
   ]
