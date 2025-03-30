@@ -84,21 +84,6 @@ function renderGoals(goals) {
             </div>
         `;
 
-
-        // let overpass = 0;
-        // if (progress > 100) {
-        //     overpass = (progress - 100) / 100 * circumference;
-        // }
-        // const overpassElement = document.getElementById('overpass');
-        // overpassElement.innerHTML = `
-        //     <circle class="progress-ring progress-ring-overpass" cx="50" cy="50" r="40" stroke-width="10" stroke="#003366" stroke-dasharray="${overpass} ${circumference}" transform="rotate(-90 50 50)"></circle>
-        // `;
-
-        // console.log(progress);
-        // console.log(overpass);
-        // // console.log(overpassElement);
-        // console.log(container)
-
         container.addEventListener("click", function (event) {
             const goalId = event.target.getAttribute("data-id");
 
